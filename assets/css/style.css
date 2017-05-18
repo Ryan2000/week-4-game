@@ -5,9 +5,17 @@ body {
     background-repeat: no-repeat;
 }
 
-#pick_row > div > img {
-    width: 80px;
+#pick_row > div > div > img {
+    width: 20px;
+}
 
+
+.green-border {
+    border: solid thin green;
+}
+
+.white-border {
+    border: solid 10px white;
 }
 
 
