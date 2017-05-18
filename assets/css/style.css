@@ -1,9 +1,13 @@
 
+html{
+    height: 100%;
+}
+
 body {
     background-image: url("../images/starwarsbackground.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    min-height: 100%;
 }
 
 .image_row > div > div{
@@ -12,14 +16,12 @@ body {
     height: 81px;
 }
 
-
 .img-responsive {
     width: 98px;
     height: 79px;
     max-width: 98px;
     max-height: 79px;
 }
-
 
 .green-border {
     border: solid thin green;
@@ -29,7 +31,6 @@ body {
     border: solid 20px white;
 }
 
-
 h1 {
     font-family:monospace;
 }
@@ -37,7 +38,6 @@ h1 {
 h5 {
     font-family:monospace;
 }
-
 
 .name{
     position: relative;
