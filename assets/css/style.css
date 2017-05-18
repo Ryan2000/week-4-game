@@ -3,9 +3,10 @@ body {
     background-image: url("../images/starwarsbackground.png");
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
 }
 
-#pick_row > div > div{
+.image_row > div > div{
     float: left;
     width: 100px;
     height: 81px;
