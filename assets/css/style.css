@@ -5,8 +5,16 @@ body {
     background-repeat: no-repeat;
 }
 
-#pick_row > div > div > img {
-    width: 20px;
+#pick_row > div > div{
+    float: left;
+    width: 100px;
+    height: 81px;
+}
+
+
+img {
+    width: 80px;
+    height: 79px;
 }
 
 
@@ -15,10 +23,25 @@ body {
 }
 
 .white-border {
-    border: solid 10px white;
+    border: solid 20px white;
 }
 
 
 h1 {
     font-family:monospace;
+}
+
+.name{
+    position: relative;
+    bottom: 80px;
+    left: 20px;
+    font-size: 8px;
+}
+
+.hp {
+    position: relative;
+    bottom: 20px;
+    font-size: 10px;
+    left: -20px;
+
 }
