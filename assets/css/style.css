@@ -4,3 +4,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+#pick_row > div > img {
+    width: 80px;
+
+}
+
+
+h1 {
+    font-family:monospace;
+}
