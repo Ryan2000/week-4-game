@@ -12,9 +12,11 @@ body {
 }
 
 
-img {
-    width: 80px;
+.img-responsive {
+    width: 98px;
     height: 79px;
+    max-width: 98px;
+    max-height: 79px;
 }
 
 
@@ -30,6 +32,11 @@ img {
 h1 {
     font-family:monospace;
 }
+
+h5 {
+    font-family:monospace;
+}
+
 
 .name{
     position: relative;
