@@ -191,6 +191,16 @@ function counter_attack(){
 }
 
 
+function resart_button(){
+    var html = '<div class="btn-group"><button id="restart" type="button" class="btn btn-default">Restart</button></div>';
+    $('#bottom_message').empty().append(html);
+
+    $('#restart').click(function(){
+        location.reload();
+    });
+}
+
+//check to see if character has been defeated
 function check_lost() {
     var result = false;
     if (myCharacter.hp <= 0) {
@@ -204,6 +214,33 @@ function check_lost() {
         });
     }
     return result;
+}
+
+function check_win(){
+    //check if hp on badGuyOne, badGuyTwo, and badGuyThree is less than 0
+    if (badGuyOne.hp <= 0 && badGuyTwo.hp <= 0 && badGuyThree.hp <= 0) {
+        $('#top_message').empty().append("You Won! You are the true Jedi!");
+        restart_button();
+    }
+    //if all three are less than 0...
+    //print You Won...GAME OVER!!! to top_messages
+    //call restart_button()
+}
+
+
+//check to see if defender has been defeated
+function check_defender_defeat() {
+    //check if defendingCharacter.hp < 0
+    if (defendingCharacter.hp <= 0) {
+        //select defender and empty it
+        $('#defender').empty();
+        //print You have defeated [name], you can choose to fight another enemy
+        //on top_messages
+        $('#top_message').append("You have defeated " + defendingCharacter.name + " You can choose to fight another enemy");
+        //empty bottom_messages
+        $('#bottom_message').empty();
+    }
+
 }
 
 
@@ -317,7 +354,8 @@ $(document).ready(function(){
         attack();
         counter_attack();
         if(!check_lost()){
-            //TOOD
+            check_defender_defeat();
+            check_win();
         }
     });
 });
