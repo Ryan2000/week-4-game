@@ -156,6 +156,7 @@ var badGuyOne;
 var badGuyTwo;
 var badGuyThree;
 
+
 function attack(){
     //Store attackPower in variable
     var attackP = myCharacter.attackPower;
@@ -191,7 +192,7 @@ function counter_attack(){
 }
 
 
-function resart_button(){
+function restart_button(){
     var html = '<div class="btn-group"><button id="restart" type="button" class="btn btn-default">Restart</button></div>';
     $('#bottom_message').empty().append(html);
 
@@ -239,6 +240,7 @@ function check_defender_defeat() {
         $('#top_message').append("You have defeated " + defendingCharacter.name + " You can choose to fight another enemy");
         //empty bottom_messages
         $('#bottom_message').empty();
+        defendingCharacter = '';
     }
 
 }
@@ -351,11 +353,13 @@ $(document).ready(function(){
     });
 
     $("#attack").click(function() {
-        attack();
-        counter_attack();
-        if(!check_lost()){
-            check_defender_defeat();
-            check_win();
+        if (defendingCharacter !== ''){
+            attack();
+            counter_attack();
+            if(!check_lost()) {
+                check_defender_defeat();
+                check_win();
+            }
         }
     });
 });
