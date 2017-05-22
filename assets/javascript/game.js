@@ -171,8 +171,41 @@ function attack(){
 
     $('#top_message').empty().append(damage);
 
-    $(defendingCharacter.selector).find('span').empty().text(defendingCharacter.hp);
+    //reduces health power when attacked.
+    $("#defender").find('.hp').empty().text(defendingCharacter.hp);
 }
+
+function counter_attack(){
+
+    //decrease myCharacter.hp by defender.attackPower
+    myCharacter.hp -= defendingCharacter.attackPower;
+
+    //Create a String
+    //[name] attacked you back for [amount] damge. Store in variable
+    var counterDamage = "<p>" + defendingCharacter.name + "attacked you back for " + defendingCharacter.attackPower  + " damage</p>";
+    //empty #bottom_message and append the string you saved in the last step
+
+    $('#bottom_message').empty().append(counterDamage);
+    //select #your_character and find .hp. Empty it, and then append myCharacter.hp
+    $('#your_character').find('.hp').empty().text(myCharacter.hp);
+}
+
+
+function check_lost() {
+    var result = false;
+    if (myCharacter.hp <= 0); {
+        $('#top_message').empty().append("You have been defeated");
+        result = true;
+
+        var html = '<div class="btn-group"><button id="restart" type="button" class="btn btn-default">Restart</button></div>';
+        $('#bottom_message').empty().append(html);
+        $('#restart').click(function(){
+            location.reload();
+        });
+    }
+    return result;
+}
+
 
 
 function pick_character(selector){
@@ -282,6 +315,10 @@ $(document).ready(function(){
 
     $("#attack").click(function() {
         attack();
+        counter_attack();
+        if(!check_lost()){
+            //TOOD
+        }
     });
 });
 

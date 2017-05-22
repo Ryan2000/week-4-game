@@ -53,3 +53,13 @@ h5 {
     left: -20px;
 
 }
+
+#top_message{
+    font-size: xx-large;
+    color: white;
+}
+
+#bottom_message {
+font-size: xx-large;
+color: white;
+}
