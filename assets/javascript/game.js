@@ -113,6 +113,46 @@
 // });
 
 
+
+
+//character objects:
+
+var luke = {
+    hp: 120,
+    base: 6,
+    attackPower: 6,
+    selector: "#pick_Luke"
+};
+
+var obi = {
+    hp: 140,
+    base: 4,
+    attackPower: 6,
+    selector: "#pick_Obi"
+};
+
+var maul = {
+    hp: 90,
+    base: 8,
+    attackPower: 3,
+    selector: "#pick_Maul"
+};
+
+var sidious = {
+    hp: 115,
+    base: 4,
+    attackPower: 7,
+    selector: "#pick_Sidious"
+};
+
+
+var myCharacter;
+var defendingCharacter;
+var badGuyOne;
+var badGuyTwo;
+var badGuyThree;
+
+
 function pick_character(selector){
     var html = $(selector).html();
     $(selector).empty();
@@ -137,20 +177,38 @@ function defend_character(charOne, charTwo, charThree){
 }
 
 
+//funcion that moves bad to defender position
+function move_to_defend(bad_guy){
+    
+    var bad_guy_html = $(bad_guy).html(); //select bad_guy and get's its html
+    $(bad_guy).empty();//Now select bad_guy and empty it's html
+    $('#defender').empty().append(bad_guy_html);//Now select defender
+                                                //delete it's html
+                                                //insert bad_guy_html
+}
+
+
 //so user can select bad_guy to fight
 function bad_guy_listeners(){
     //Select each bad_guy div and add a click listener to it
     //inside of the listener, do alert('Bad Guy X');
     $('#bad_guy_one').click(function() {
-        alert("Bad Guy one");
+        //(this) creates a JQuery object of bad_guy_one in this click event function
+        //passing this through move_to_defend function
+        move_to_defend($(this));
+        defendingCharacter = badGuyOne;
     });
 
     $('#bad_guy_two').click(function() {
-        alert("Bad Guy two");
+        //alert("Bad Guy two");
+        move_to_defend($(this));
+        defendingCharacter = badGuyTwo;
     });
 
     $('#bad_guy_three').click(function() {
-        alert("Bad Guy three");
+        //alert("Bad Guy three");
+        move_to_defend($(this));
+        defendingCharacter = badGuyThree;
     });
 
 }
@@ -162,6 +220,9 @@ $(document).ready(function(){
         //no longer need characters to pick from section
         $(this).parent().empty();
         bad_guy_listeners();
+
+        badGuyOne=obi; badGuyTwo=maul; badGuyThree=sidious;
+        myCharacter = luke;
     });
 
     $("#pick_Obi").click(function(){
@@ -170,6 +231,9 @@ $(document).ready(function(){
         defend_character($('#pick_Luke'), $('#pick_Maul'), $('#pick_Sidious'));
         $(this).parent().empty();
         bad_guy_listeners();
+
+        badGuyOne=luke; badGuyTwo=maul; badGuyThree=sidious;
+        myCharacter = obi;
     });
 
     $("#pick_Maul").click(function(){
@@ -178,6 +242,9 @@ $(document).ready(function(){
         defend_character($('#pick_Luke'), $('#pick_Obi'), $('#pick_Sidious'));
         $(this).parent().empty();
         bad_guy_listeners();
+
+        badGuyOne=luke; badGuyTwo=obi; badGuyThree=sidious;
+        myCharacter = maul;
     });
 
     $("#pick_Sidious").click(function(){
@@ -186,5 +253,14 @@ $(document).ready(function(){
         defend_character($('#pick_Luke'), $('#pick_Maul'), $('#pick_Obi'));
         $(this).parent().empty();
         bad_guy_listeners();
+
+        badGuyOne=luke; badGuyTwo=maul; badGuyThree=obi;
+        myCharacter = sidious;
+    });
+
+    $("#attack").click(function() {
+        alert("attack");
     });
 });
+
+
