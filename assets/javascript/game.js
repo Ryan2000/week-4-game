@@ -4,18 +4,21 @@
 
 
 //Add click event listeners for our characters:
-$("#pick_luke").click(function(){
-    alert('Picked Luke SkyWalker');
-});
+$(document).ready(function() {
 
-$("#pick_Obi").click(function(){
-    alert('Picked Obi-wan-kenobi');
-});
+    $("#pick_Luke").click(function () {
+        alert('Picked Luke SkyWalker');
+    });
 
-$("#pick_Maul").click(function(){
-    alert('Picked Darth Maul');
-});
+    $("#pick_Obi").click(function () {
+        alert('Picked Obi-wan-kenobi');
+    });
 
-$("#pick_Sidious").click(function(){
-    alert('Picked Darth Sidious');
+    $("#pick_Maul").click(function () {
+        alert('Picked Darth Maul');
+    });
+
+    $("#pick_Sidious").click(function () {
+        alert('Picked Darth Sidious');
+    });
 });
