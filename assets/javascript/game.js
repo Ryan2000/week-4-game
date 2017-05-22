@@ -193,7 +193,7 @@ function counter_attack(){
 
 function check_lost() {
     var result = false;
-    if (myCharacter.hp <= 0); {
+    if (myCharacter.hp <= 0) {
         $('#top_message').empty().append("You have been defeated");
         result = true;
 
