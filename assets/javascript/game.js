@@ -121,28 +121,32 @@ var luke = {
     hp: 120,
     base: 6,
     attackPower: 6,
-    selector: "#pick_Luke"
+    selector: "#pick_Luke",
+    name: "Luke SkyWalker"
 };
 
 var obi = {
     hp: 140,
     base: 4,
     attackPower: 6,
-    selector: "#pick_Obi"
+    selector: "#pick_Obi",
+    name: "Obi-wan-kenobi"
 };
 
 var maul = {
     hp: 90,
     base: 8,
     attackPower: 3,
-    selector: "#pick_Maul"
+    selector: "#pick_Maul",
+    name: "Darth Maul"
 };
 
 var sidious = {
     hp: 115,
     base: 4,
     attackPower: 7,
-    selector: "#pick_Sidious"
+    selector: "#pick_Sidious",
+    name: "Darth Sidious"
 };
 
 
@@ -151,6 +155,24 @@ var defendingCharacter;
 var badGuyOne;
 var badGuyTwo;
 var badGuyThree;
+
+function attack(){
+    //Store attackPower in variable
+    var attackP = myCharacter.attackPower;
+
+    //Decrease defenders hp by attackPower
+    defendingCharacter.hp -= attackP;
+
+    //Increase myCharacters's attackPower by base
+    myCharacter.attackPower += myCharacter.base;
+
+    //Create a string You attacked [Defender Name] for [damage amount] damage and store in variable
+    var damage = "<p>You attacked " + defendingCharacter.name + "for " + attackP + " damage</p>";
+
+    $('#top_message').empty().append(damage);
+
+    $(defendingCharacter.selector).find('span').empty().text(defendingCharacter.hp);
+}
 
 
 function pick_character(selector){
@@ -179,7 +201,7 @@ function defend_character(charOne, charTwo, charThree){
 
 //funcion that moves bad to defender position
 function move_to_defend(bad_guy){
-    
+
     var bad_guy_html = $(bad_guy).html(); //select bad_guy and get's its html
     $(bad_guy).empty();//Now select bad_guy and empty it's html
     $('#defender').empty().append(bad_guy_html);//Now select defender
@@ -259,7 +281,7 @@ $(document).ready(function(){
     });
 
     $("#attack").click(function() {
-        alert("attack");
+        attack();
     });
 });
 
