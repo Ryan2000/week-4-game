@@ -137,12 +137,31 @@ function defend_character(charOne, charTwo, charThree){
 }
 
 
+//so user can select bad_guy to fight
+function bad_guy_listeners(){
+    //Select each bad_guy div and add a click listener to it
+    //inside of the listener, do alert('Bad Guy X');
+    $('#bad_guy_one').click(function() {
+        alert("Bad Guy one");
+    });
+
+    $('#bad_guy_two').click(function() {
+        alert("Bad Guy two");
+    });
+
+    $('#bad_guy_three').click(function() {
+        alert("Bad Guy three");
+    });
+
+}
+
 $(document).ready(function(){
     $("#pick_Luke").click(function(){
         pick_character($(this));
         defend_character($('#pick_Obi'), $('#pick_Maul'), $('#pick_Sidious'));
         //no longer need characters to pick from section
         $(this).parent().empty();
+        bad_guy_listeners();
     });
 
     $("#pick_Obi").click(function(){
@@ -150,6 +169,7 @@ $(document).ready(function(){
         //Add code to move other characters to Enemies section
         defend_character($('#pick_Luke'), $('#pick_Maul'), $('#pick_Sidious'));
         $(this).parent().empty();
+        bad_guy_listeners();
     });
 
     $("#pick_Maul").click(function(){
@@ -157,6 +177,7 @@ $(document).ready(function(){
         //Add code to move other characters to Enemies section
         defend_character($('#pick_Luke'), $('#pick_Obi'), $('#pick_Sidious'));
         $(this).parent().empty();
+        bad_guy_listeners();
     });
 
     $("#pick_Sidious").click(function(){
@@ -164,5 +185,6 @@ $(document).ready(function(){
         //Add code to move other characters to Enemies section
         defend_character($('#pick_Luke'), $('#pick_Maul'), $('#pick_Obi'));
         $(this).parent().empty();
+        bad_guy_listeners();
     });
 });
